@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'todo/base.html' %}
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <h4>Add a chore to your list:</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    <a href="{% url 'home' %}">Home</a>
+</div>
+{% endblock %}
+</body>
+</html>

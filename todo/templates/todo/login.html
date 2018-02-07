@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'todo/base.html' %}
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <h4>Login</h4>
+</div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<br>
+<h5>Not registered?</h5>
+<a href="{% url 'register' %}">Register here</a>
+{% endblock %}
+</body>
+</html>
+

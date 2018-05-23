@@ -33,8 +33,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'todo',
-    'djcelery',
-    'djcelery_email',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,14 +77,14 @@ WSGI_APPLICATION = 'unomena.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'todo',
-            'USER': 'postgres',
-            'PASSWORD': 'cactus206',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
-        }
+'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'todo',
+        'USER': 'postgres',
+        'PASSWORD': 'cactus206',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 
 
@@ -108,9 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Argon2 password hasher
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -130,12 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/todo/static/',
+    'static'
 ]
-
 
 REST_FRAMEWORK = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -144,24 +136,17 @@ REST_FRAMEWORK = {
 
 #Broker Settings(RabbitMQ):
 
-BROKER_URL = 'amqp://guest:guest@localhost:5672/'
-'''
 BROKER_HOST = 'localhost'
 BROKER_PORT = 5672
 BROKER_USER = 'guest'
 BROKER_PASSWORD = 'guest'
-'''
+
 
 #Email Settings:
 
-EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 EMAIL_USE_TLS =True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'django.testacc306@gmail.com'
 EMAIL_HOST_PASSWORD = 'eclipse309'
 EMAIL_PORT = 587
 
-# Allows us to authenticate users with their email address
-AUTHENTICATION_BACKENDS = (
-    'todo.authenticate.EmailAuthenticationBackend',
-)

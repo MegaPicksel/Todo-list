@@ -7,17 +7,34 @@
 </head>
 <body>
 {% block content %}
-<div class="container">
-    <h4>Login</h4>
-</div>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
 <br>
-<h5>Not registered?</h5>
-<a href="{% url 'register' %}">Register here</a>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <div class="container">
+                <div class="col d-flex justify-content-center">
+                    <h4>Login</h4>
+                </div>
+            </div>
+            <form method="post">
+            {% csrf_token %}
+            <p>Email: {{form.username}}</p>
+            <p>Password: {{form.password}}</p>
+            <button type="submit">Login</button>
+            <br>
+            <h5>Not registered?</h5>
+            <a href="{% url 'register' %}">Register</a>
+        </form>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
 {% endblock %}
 </body>
 </html>

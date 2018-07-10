@@ -83,7 +83,7 @@ DATABASES = {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'todo',
             'USER': 'postgres',
-            'PASSWORD': 'cactus206',
+            'PASSWORD': 
             'HOST': '127.0.0.1',
             'PORT': '5432',
         }
@@ -157,8 +157,8 @@ BROKER_PASSWORD = 'guest'
 EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 EMAIL_USE_TLS =True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'django.testacc306@gmail.com'
-EMAIL_HOST_PASSWORD = 'eclipse309'
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
 EMAIL_PORT = 587
 
 # Allows us to authenticate users with their email address
